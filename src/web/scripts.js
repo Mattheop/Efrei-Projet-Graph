@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         // set is wheelable or not
         wheelable: true,
         // set is pinchable or not
+        pinchable: true,
     });
 
     mapResult.addEventListener('load', function () {
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const startY = startVertex.y;
 
         zoomist.moveTo(startX, startY);
-        zoomist.zoom(1.5);
+        //zoomist.zoom(1.5);
     });
 
     const signTemplate = (line) => {
