@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Metro Mapper</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="metro.css">
+    <link rel="stylesheet" href="awesomplete.css">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zoomist@2/zoomist.css"/>
+
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/zoomist@2/zoomist.umd.js"></script>
+
+    <script src="awesomplete.min.js"></script>
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+<div class="trip-search">
+    <div class="title-container">
+        <img src="logo.png" alt="">
+        <h1 class="title">Metro Mapper</h1>
+    </div>
+    <h4 class="trip-title">Itinéraire</h4>
+    <form id="trip-form">
+        <label class="input-container">
+            Station de départ
+            <input id="start" type="text" placeholder="Ledru Rollin...">
+        </label>
+        <label class="input-container">
+            Station d'arrivée
+            <input id="end" type="text" placeholder="Marie d'Ivry...">
+        </label>
+
+        <input class="btn" type="submit" value="Rechercher">
+    </form>
+
+    <h4 class="trip-title">Algorithme de Prim's</h4>
+
+    <form id="acpm-form">
+        <label class="input-container">
+            Considérer les correspondances comme une unique station
+            <input type="checkbox" id="acpm-duplicated-merge">
+        </label>
+        <input class="btn" type="submit" value="Calculer l'APCM">
+    </form>
+
+    <style>
+        .zoomist-container {
+            max-width: 600px;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .zoomist-image {
+            width: 100%;
+            aspect-ratio: 1;
+        }
+
+        .zoomist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+
+    <div class="zoomist-container">
+        <div class="zoomist-wrapper">
+            <div class="zoomist-image">
+                <img id="map-result" src="metrof_r.png" />
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Projet réalisé en 2023 à l'EFREI
+    </div>
+</div>
+<div class="result">
+    <div class="trip-result" id="trip-result"></div>
+</div>
+
+</body>
+</html>

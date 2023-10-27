@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  projet-graph:
+    container_name: projet-graph
+    build:
+        target: base
+        context: .
+        dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
