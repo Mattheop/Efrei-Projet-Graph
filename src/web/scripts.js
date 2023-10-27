@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function () {
-    const API_URL = 'http://localhost:3000/api';
+    const API_URL = window.location.origin + '/api';
     const verticesRequest = await fetch(`${API_URL}/vertices`);
     const vertices = await verticesRequest.json();
 
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
         });
 
-        mapResult.src = `http://localhost:3000/api/bellmanford/map/${startInput.getAttribute('data-id')}/${endInput.getAttribute('data-id')}`;
+        mapResult.src = `${API_URL}/bellmanford/map/${startInput.getAttribute('data-id')}/${endInput.getAttribute('data-id')}`;
     });
 
     const acpmForm = document.getElementById('acpm-form');
@@ -196,6 +196,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     acpmForm.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        mapResult.src = `http://localhost:3000/api/prims/map?duplicated_merge=${acpmDuplicatedMerge.checked}`;
+        mapResult.src = `${API_URL}/prims/map?duplicated_merge=${acpmDuplicatedMerge.checked}`;
     });
 });
