@@ -1,0 +1,18 @@
+---
+- name: "Playbook to deploy last git version"
+  hosts: all
+  tasks:
+    - name: "Clone git repository if not exist"
+      shell: "git clone https://github.com/Mattheop/Efrei-Projet-Graph ~/appdata/Efrei-Projet-Graph"
+      args:
+        creates: "~/appdata/Efrei-Projet-Graph"
+    - name: "pull changes"
+      shell: "git pull origin main --rebase"
+      args:
+        chdir: "~/appdata/Efrei-Projet-Graph"
+        warn: true
+    - name: "up container with docker-compose"
+      shell: "docker compose -f docker-compose.proxy.yml -f docker-compose.yml up --build --force-recreate -V -d"
+      args:
+        chdir: "~/appdata/Efrei-Projet-Graph"
+        warn: true
