@@ -31,6 +31,7 @@ def bellman_ford(graph: Graph, source: Vertex) -> dict[int, int]:
                 neighbour = edge.sommet1 if edge.sommet1.num != vertex.num else edge.sommet2
                 # on vérifie si on a trouvé un chemin plus court
                 if neighbour.num in distances and vertex.num in distances:
+                    # si on a trouvé un chemin plus court, on met à jour la distance
                     if distances[vertex.num] + edge.distance < distances[neighbour.num]:
                         # si c'est le cas, on met à jour la distance
                         distances[neighbour.num] = distances[vertex.num] + edge.distance

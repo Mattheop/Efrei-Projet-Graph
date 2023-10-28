@@ -7,23 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Metro Mapper</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="metro.css">
-    <link rel="stylesheet" href="awesomplete.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/metro.css">
+    <link rel="stylesheet" href="css/awesomplete.css">
+    <link rel="stylesheet" href="css/zoomist.css"/>
 
-    <!-- styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zoomist@2/zoomist.css"/>
-
-    <!-- scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/zoomist@2/zoomist.umd.js"></script>
-
-    <script src="awesomplete.min.js"></script>
-    <script defer src="scripts.js"></script>
+    <script src="js/zoomist.umd.js"></script>
+    <script src="js/awesomplete.min.js"></script>
+    <script defer src="js/scripts.js"></script>
 </head>
 <body>
 <div class="trip-search">
     <div class="title-container">
-        <img src="logo.png" alt="">
+        <img src="images/logo.png" alt="">
         <h1 class="title">Metro Mapper</h1>
     </div>
     <h4 class="trip-title">Itinéraire</h4>
@@ -50,30 +46,10 @@
         <input class="btn" type="submit" value="Calculer l'APCM">
     </form>
 
-    <style>
-        .zoomist-container {
-            max-width: 600px;
-            width: 100%;
-            z-index: 5000;
-        }
-
-        .zoomist-image {
-            width: 100%;
-            aspect-ratio: 1;
-        }
-
-        .zoomist-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    </style>
-
     <div class="zoomist-container" id="map-result-container">
         <div class="zoomist-wrapper">
             <div class="zoomist-image">
-                <img id="map-result" src="metrof_r.png" />
+                <img id="map-result" src="images/metrof_r.png" />
             </div>
         </div>
     </div>

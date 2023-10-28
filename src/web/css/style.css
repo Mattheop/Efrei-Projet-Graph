@@ -64,6 +64,8 @@ body {
     top: 0;
     left: 0;
     position: fixed;
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 .trip-result {
@@ -148,6 +150,24 @@ input::placeholder {
 
 .arrival img {
     width: 35px;
+}
+
+.zoomist-container {
+    max-width: 600px;
+    width: 100%;
+    z-index: 5000;
+}
+
+.zoomist-image {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.zoomist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 @media screen and (max-width: 1024px) {

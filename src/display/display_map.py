@@ -40,7 +40,7 @@ def graph_to_map_stream(graph: Graph) -> io.BytesIO:
         x.append(sommet.x)
         y.append(sommet.y)
 
-    # link with red line the sommets
+    # link with line the sommets
     for sommet in graph.vertices.values():
         for voisin in sommet.edges:
             # on vérifie si les deux sommets sont bien dans le graph

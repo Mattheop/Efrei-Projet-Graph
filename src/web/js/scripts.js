@@ -1,11 +1,6 @@
 document.addEventListener('DOMContentLoaded', async function () {
     const API_URL = window.location.origin + '/api';
-    const verticesRequest = await fetch(`${API_URL}/vertices`);
-    const vertices = await verticesRequest.json();
 
-    const tripResult = document.getElementById('trip-result');
-    const mapResult = document.getElementById('map-result');
-    const mapResultContainer = document.getElementById('map-result-container');
     const zoomist = new Zoomist('.zoomist-container', {
         maxScale: 4,
         bounds: true,
@@ -15,6 +10,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         wheelable: true,
         pinchable: true,
     });
+
+    const verticesRequest = await fetch(`${API_URL}/vertices`);
+    const vertices = await verticesRequest.json();
+
+    const tripResult = document.getElementById('trip-result');
+    const mapResult = document.getElementById('map-result');
+    const mapResultContainer = document.getElementById('map-result-container');
 
     mapResult.addEventListener('load', function () {
         const startVertex = vertices.find((vertex) => vertex.id === parseInt(startInput.getAttribute('data-id')));
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         switchTitle.textContent = 'Je change de ligne';
 
         const switchText = document.createElement('p');
-        switchText.textContent = `Ligne ${oldLine} à ${newLine}, je suis à ${duration}s de trajet`;
+        switchText.textContent = `Ligne ${oldLine} à ${newLine}, je suis à ${duration} de trajet.`;
 
         switchSection.append(switchIcon, switchTitle, switchText);
         return switchSection;
@@ -116,7 +118,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         switchTitle.textContent = 'Bien arrivé !';
 
         const switchText = document.createElement('p');
-        switchText.textContent = `Je suis à la station ${stationName} en ${duration}s de trajet`;
+        switchText.textContent = `Je suis à la station ${stationName} en ${duration} de trajet.`;
 
         switchSection.append(switchIcon, switchTitle, switchText);
         return switchSection;

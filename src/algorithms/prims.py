@@ -41,9 +41,7 @@ def prims_apcm(graph: Graph, duplicated_merge=False):
             selected_copy = Edge(sommet1=selected.sommet1, sommet2=selected.sommet2, distance=selected.distance)
 
             neighbour = selected.sommet1 if selected.sommet1.num not in already_visited else selected.sommet2
-
             neighbour_copy = copy_vertex(neighbour)
-
             neighbour_copy.edges.append(selected_copy)
             apcm.add_vertex(neighbour_copy)
 
@@ -56,6 +54,6 @@ def prims_apcm(graph: Graph, duplicated_merge=False):
                     if vertex.nom == neighbour.nom and vertex.num not in already_visited:
                         already_visited.add(vertex.num)
 
-    print(f"Temps total : {total_time} secondes")
-    print(timedelta(seconds=total_time))
+    print("Temps total: " + str(timedelta(seconds=total_time)))
+
     return apcm

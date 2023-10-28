@@ -31,16 +31,21 @@ class Graph:
 
         return len(visited) == len(self.vertices)
 
-    def dfs(self, start: Vertex, visited: set[int]) -> None:
+    def dfs(self, current: Vertex, visited: set[int]) -> None:
         """
         Parcours en profondeur du graphe utilisant la récursivité.
         À la fin de l'exécution, le set visited contient tous les sommets visités.
-        :param start: Sommet de départs restant à visiter
+        :param current: Sommet de départs restant à visiter
         :param visited: Sommets déjà visités
         """
-        visited.add(start.num)
-        for edge in start.edges:
-            neighbour = edge.sommet1 if edge.sommet1.num != start.num else edge.sommet2
+        # on ajoute le sommet courant à la liste des sommets visités
+        visited.add(current.num)
+        # on regarde tous les voisins du sommet courant
+        for edge in current.edges:
+            # on récupère le sommet voisin
+            neighbour = edge.sommet1 if edge.sommet1.num != current.num else edge.sommet2
+            # si le sommet voisin n'a pas été visité, on le visite
+            # avec un appel récursif
             if neighbour.num not in visited:
                 self.dfs(neighbour, visited)
 
