@@ -5,19 +5,14 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const tripResult = document.getElementById('trip-result');
     const mapResult = document.getElementById('map-result');
+    const mapResultContainer = document.getElementById('map-result-container');
     const zoomist = new Zoomist('.zoomist-container', {
-        // Optional parameters
         maxScale: 4,
         bounds: true,
-        // if you need slider
         slider: true,
-        // if you need zoomer
         zoomer: true,
-        // set is draggable or not
         draggable: true,
-        // set is wheelable or not
         wheelable: true,
-        // set is pinchable or not
         pinchable: true,
     });
 
@@ -137,7 +132,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             };
         },
         replace: function (suggestion) {
-            console.log(suggestion)
             this.input.value = suggestion.label;
             this.input.setAttribute('data-id', suggestion.value);
             this.input.setAttribute('data-name', suggestion.label);
@@ -188,6 +182,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                 tripResult.append(arrivalTemplate(endInput.getAttribute('data-name'), lineTrip.end_duration_formatted))
             }
         });
+
+        // scroll into trip-result
+        mapResultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
         mapResult.src = `${API_URL}/bellmanford/map/${startInput.getAttribute('data-id')}/${endInput.getAttribute('data-id')}`;
     });
