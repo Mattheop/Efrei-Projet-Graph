@@ -3,6 +3,8 @@ import io
 from models.Graph import Graph
 import numpy as np
 from matplotlib import image as mpimg, pyplot as plt
+import matplotlib as mpl
+import matplotlib.style as mplstyle
 
 from utils import paris_ligne_couleur
 
@@ -14,6 +16,10 @@ def graph_to_map_stream(graph: Graph) -> io.BytesIO:
     :param graph: Graph à représenter
     :return: BytesIO Stream, do not forget to close it.
     """
+    mplstyle.use('fast')
+    mpl.rcParams['path.simplify'] = True
+    mpl.rcParams['path.simplify_threshold'] = 0.75
+
 
     stream_result = io.BytesIO()
 
@@ -21,7 +27,7 @@ def graph_to_map_stream(graph: Graph) -> io.BytesIO:
     carte = np.flipud(carte)
     dimensions_carte = [0, 987, 0, 952]
 
-    plt.figure(figsize=(15, 15), dpi=100)
+    plt.figure(figsize=(13, 13), dpi=150)
     plt.axis('off')
     plt.imshow(carte, extent=dimensions_carte, aspect='equal', zorder=0, alpha=0.25)
     ax = plt.gca()
@@ -52,7 +58,7 @@ def graph_to_map_stream(graph: Graph) -> io.BytesIO:
     plt.scatter(x, y, marker='o', color='black', label='Sommets', zorder=2)
 
     # save to file to debug
-    plt.savefig(stream_result, format="png", dpi=100, bbox_inches='tight', pad_inches=0, transparent=True)
+    plt.savefig(stream_result, format="png", dpi=150, bbox_inches='tight', pad_inches=0, transparent=True)
     stream_result.seek(0)
 
     plt.close()
