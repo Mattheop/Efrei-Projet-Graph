@@ -6,6 +6,10 @@ from reader.VertexReader import VertexReader
 
 
 def main():
+    """
+    Permet de chercher le numero du sommet a partir de son nom
+    """
+    
     sommet_reader = VertexReader("../data/metro.txt")
     edge_reader = EdgeReader("../data/metro.txt")
 

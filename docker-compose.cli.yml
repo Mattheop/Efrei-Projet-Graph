@@ -1,0 +1,9 @@
+version: "3.4"
+services:
+  projet-graph-cli:
+    container_name: projet-graph-cli
+    tty: true
+    stdin_open: true
+    build:
+        context: .
+        dockerfile: Dockerfile-cli

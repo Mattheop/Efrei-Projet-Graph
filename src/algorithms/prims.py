@@ -54,6 +54,4 @@ def prims_apcm(graph: Graph, duplicated_merge=False):
                     if vertex.nom == neighbour.nom and vertex.num not in already_visited:
                         already_visited.add(vertex.num)
 
-    print("Temps total: " + str(timedelta(seconds=total_time)))
-
     return apcm
