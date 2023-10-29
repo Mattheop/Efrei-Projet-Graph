@@ -192,10 +192,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
     const acpmForm = document.getElementById('acpm-form');
-    const acpmDuplicatedMerge = document.getElementById('acpm-duplicated-merge');
     acpmForm.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        mapResult.src = `${API_URL}/prims/map?duplicated_merge=${acpmDuplicatedMerge.checked}`;
+        mapResult.src = `${API_URL}/prims/map?duplicated_merge=false`;
     });
 });
