@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         switchSection.classList.add('switch');
 
         const switchIcon = document.createElement('img');
-        switchIcon.setAttribute('src', 'walking.png');
+        switchIcon.setAttribute('src', 'images/walking.png');
         switchIcon.setAttribute('alt', '');
 
         const switchTitle = document.createElement('h3');
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         switchSection.classList.add('arrival');
 
         const switchIcon = document.createElement('img');
-        switchIcon.setAttribute('src', 'success.png');
+        switchIcon.setAttribute('src', 'images/success.png');
         switchIcon.setAttribute('alt', '');
 
         const switchTitle = document.createElement('h3');
